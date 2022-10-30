@@ -1,5 +1,8 @@
+html {
+    height: 100%;
+  }
 body {
-    background-color: lightblue;
+    min-height: 100%;
 }
 
 #main {
@@ -11,7 +14,21 @@ body {
 }
 
 .button {
-    width: 100px;
-    height: 100px;
-    background-color: yellow;
+    width: 35%;
+    height: 35%;
+    /* Disable long touch press selection */
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+}
+
+.active {
+    background-color: blue;
+}
+
+.inactive {
+    background-color: lightblue;
 }

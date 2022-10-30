@@ -1,16 +1,9 @@
-/*
- * Blink
- * Turns on an LED on for one second,
- * then off for one second, repeatedly.
- */
-
 #include <Arduino.h>
 #include <WiFi.h>
 #include <AsyncTCP.h>
 #include <ESPAsyncWebServer.h>
 #include <SPIFFS.h>
 
-// ESPAsyncWebServer-esphome
 AsyncWebServer server(80);
 
 const char* ssid     = "RazeCar_Yannick";
@@ -36,14 +29,16 @@ void setup()
 
   server.serveStatic("/", SPIFFS, "/").setDefaultFile("index.html");
 
-  server.on("/motors/left", HTTP_GET, [](AsyncWebServerRequest *request){
+  server.on("/motors/left", HTTP_GET, [](AsyncWebServerRequest *request) {
     Serial.println("Requested to drive LEFT");
     Serial.println(request->getParam(0)->value());
+    request->send(200);
   });
 
-  server.on("/motors/right", HTTP_GET, [](AsyncWebServerRequest *request){
+  server.on("/motors/right", HTTP_GET, [](AsyncWebServerRequest *request) {
     Serial.println("Requested to drive RIGHT");
     Serial.println(request->getParam(0)->value());
+    request->send(200);
   });
 
   server.begin();
