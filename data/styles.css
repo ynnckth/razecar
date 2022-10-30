@@ -1,0 +1,17 @@
+body {
+    background-color: lightblue;
+}
+
+#main {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.button {
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+}
